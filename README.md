@@ -6,13 +6,13 @@
 
 ## Team Members
 
-<< List team member names >>
+Megan Eng, Mingyang Liu
 
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
+
 
 ***    
 
