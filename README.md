@@ -12,7 +12,7 @@ Megan Eng, Mingyang Liu
 
 ## Project Description
 
-
+Creating a visual tour for aquarium which user can see pictures and introductions of each part. Then, the user can quit the screen as soon as they want.
 
 ***    
 
@@ -30,11 +30,11 @@ Megan Eng, Mingyang Liu
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Start menu
+2. Moving character
+3. Interact with objects/exhibits
+4. Pop up screens with information
+5. Ending menu
 
 ### Classes
 
