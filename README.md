@@ -30,7 +30,7 @@ Creating a visual tour for aquarium which user can see pictures and introduction
 
 ### Features
 
-1. Start menu
+1. Start menu 
 2. Moving character
 3. Interact with objects/exhibits
 4. Pop up screens with information
