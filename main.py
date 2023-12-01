@@ -6,8 +6,6 @@ player_velocity = 10
 player_width = 40
 player_height = 60
 
-
-
 def check_input (key):
     if key == pygame.K_LEFT:
         player_x -= player_velocity
@@ -23,7 +21,7 @@ def mainloop(pygame):
     player_y = -30 
     run = True
     screen = pygame.display.set_mode((1200, 720)) 
-    pygame.display.set_caption("Museum Game")
+    pygame.display.set_caption("Museum")
         
     while run: 
         for event in pygame.event.get():
