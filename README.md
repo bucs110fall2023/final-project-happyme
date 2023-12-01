@@ -2,7 +2,7 @@
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
 # << Project Title >>
-## CS110 Final Project  << Fall, 2023 >>
+## CS110 Final Project  << Semester, Year >>
 
 ## Team Members
 
@@ -17,7 +17,6 @@ Creating a visual tour for aquarium which user can see pictures and introduction
 ***    
 
 ## GUI Design
-
 ### Initial Design
 
 ![initial gui](assets/gui.jpg)
@@ -27,7 +26,6 @@ Creating a visual tour for aquarium which user can see pictures and introduction
 ![final gui](assets/finalgui.jpg)
 
 ## Program Design
-
 ### Features
 
 1. Start menu 

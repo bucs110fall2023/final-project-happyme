@@ -34,8 +34,6 @@ def mainloop(pygame):
         pygame.draw.rect(screen, ("PURPLE"), (player_x, player_y, player_width, player_height ))
         pygame.display.update()
     
-       
-
 def main():
     pygame.init()
     
