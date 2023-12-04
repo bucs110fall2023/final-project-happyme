@@ -38,6 +38,69 @@ Creating a visual tour for Acquarium which user can see pictures and introductio
 
 - << You should have a list of each of your classes with a description >>
 
+Player 
+ A circle that the user can move by clicking on the up, down, left, and right keyboard keys
+
+Timer 
+ A timer used in the backend to determine how far the player moves
+
+FishTank 
+ A rectangle that the user can collide with to recieve a pop-up window with more information about the exhibit
+
+Button 
+ Anytime the user clicks on a button, the controller prompts a new event  
+
 ## ATP
+
+Test Case 1: Menu Navigation
+    Description: Test the navigation through the game's main menu.
+    Test Steps:
+        1. Start the game.
+        2. Click on the Start Button.
+    Expected Outcome: The main menu should allow the player to navigate to the Game Screen.
+
+Test Case 2: Player Movement
+    Description: Verify that the player can move up, down, left, and right without leaving the game screen bounds.
+    Test Steps:
+        1. Start the game.
+        2. Click on the Start Button.
+        3. Press the left arrow key 3-4 times.
+        4. Verify that the player moves left without going off of the screen.
+        5.Press the right arrow key 3-4 times.
+        6.Verify that the player moves right without going off of the screen.
+        7.Press the up arrow key 3-4 times.
+        8.Verify that the player moves up without going off of the screen.
+        9.Press the down arrow key 3-4 times.
+        10.Verify that the player moves down without going off of the screen.
+    Expected Outcome: The player  should move left,right, up, and down in response to the arrow key inputs.
+
+Test Case 3: Collision Detection
+    Test Description: Ensure that collisions between the player and fishtanks are detected correctly.
+    Test Steps:
+        1. Start the game.
+        2. Click on the Start Button.
+        3. Move the character with the arrow keys so that it is touching a fish tank.
+        4. Repeat step 4 for all fish tanks.
+    Expected Outcome: A Pop up Window should open and give information about the exhibit. The player colliding with the top left tank should not display the same information as when the player collides with the bottom right tank. Each tank corresponds to a different exhibit and there are 6 different exhibits.
+
+Test Case 4: 
+    Description:
+    Test Steps:
+        1. 
+    Expected Outcome: 
+
+Test Case 5: Game Over Condition
+    Test Description: Confirm that the game ends when the player has viewed all fish tanks.
+    Test Steps:
+        1. Start the game.
+        2. Click on the Start Button.
+        3. Move the character with the arrow keys so that it is touching the fish tank.
+        4. Click on the exit button when the pop up window appears.
+        5. Repeat steps 3-4 for all fish tanks.
+        6. Verify that the game displays a "You Finished!" message.
+    Expected Outcome: The game should display a "You Finished!" message when the player has viewed all aquarium exhibits.
+
+
+
 
 
