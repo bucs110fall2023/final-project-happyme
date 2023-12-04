@@ -5,12 +5,15 @@ class View:
         self.screen = pygame.display.set_mode((1200,700))
         self.width = self.screen.get_width()
         self.height = self.screen.get_height()
+        self.font = pygame.font.SysFont("cambria", 200)
+        self.gameTitle = self.font.render("AQUARIUM", True, "WHITE")
     
-    def drawMenuScreen (self, startButtonColor, points, message):    
-        self.screen.fill("WHITE") 
-        pygame.display.set_caption('acquarium start menu')
-        self.screen.blit(message, (600, 350))
-        pygame.draw.polygon(self.screen, startButtonColor, points)
+    def drawMenuScreen (self, startButtonColor, startBpoints, startBmessage):    
+        self.screen.fill("cadetblue3") 
+        pygame.display.set_caption('acquarium start menu') 
+        pygame.draw.polygon(self.screen, startButtonColor, startBpoints) #draw start button
+        self.screen.blit(startBmessage, (self.width / 3, self.height/2)) #display name of start button
+        self.screen.blit(self.gameTitle, (self.width / 90, self.height/10)) #draw title
         pygame.display.flip()
     
     def drawGameScreen(self, player):

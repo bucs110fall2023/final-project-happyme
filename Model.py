@@ -1,28 +1,26 @@
 import pygame 
 class button: 
-    def __init__(self, x , y , width, length, message, color):
+    def __init__(self, x, y, width, length, message, color, messageSize):
         self.x1 = x
         self.y1 = y
-        self.cord1 = ((self.x1, self.y1))
-        self.cord2 = ((self.x1 + length, self.y1))
-        self.cord3 = ((self.x1 + length, self.y1 + width))
-        self.cord4 = ((self.x1 , self.y1 + width))
-        self.font = pygame.font.Font(None, 48)
+        self.width = width
+        self.length = length
+        self.font = pygame.font.SysFont("cambria", messageSize)
+        xcoords = [self.x1, self.x1 + length, self.x1 + length, self.x1]
+        ycoords = [self.y1, self.y1, self.y1 + width, self.y1 + width]
+        self.points = list(zip(xcoords, ycoords))
         self.message = self.font.render(message, True, "WHITE")
-        self.color = color
-        #self.buttonMessage = self.font.render(self.message, True, self.color)
+        self.color = pygame.Color(color)
+
+    def getPoints(self):
+        return self.points
     
-    def checkForInput (self, position):
-        buttonPress = False
-        if position[0] in range(self.buttonMessage.left, self.buttonMessage.right)and position[1] in range(self.buttonMessage.top, self.buttonMessage.bottom):
-            buttonPress = True
-        return buttonPress    
-    
-    def getPoints (self):
-        points = [ self.cord1,  self.cord2,  self.cord3,  self.cord4]
-        return points
-        
-        
+    def checkForInput(self, mousePos):
+        buttonClicked = False
+        if self.x1 <= mousePos[0] <= self.x1 + self.length and self.y1 <= mousePos[1] <= self.y1 + self.width:
+            buttonClicked = True
+        return buttonClicked
+
 class fishTank: 
     def __init__(self, color, startx, starty, length):
         self.color = color
