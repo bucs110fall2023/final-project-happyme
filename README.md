@@ -75,15 +75,13 @@ Test Case 2: Player Movement
     Expected Outcome: The player  should move left,right, up, and down in response to the arrow key inputs.
 
 Test Case 3: Collision Detection
-
-    Test Description: Ensure that collisions between the player's bullets and enemy ships are detected correctly.
+    Test Description: Ensure that collisions between the player and fishtanks are detected correctly.
     Test Steps:
-    Start the game.
-    Fire a player's bullet towards an enemy ship.
-    Verify that the bullet hits the enemy ship.
-    Fire a player's bullet that misses the enemy ship.
-    Verify that no collision is detected.
-    Expected Outcome: Bullets should correctly collide with enemy ships.
+        1. Start the game.
+        2. Click on the Start Button.
+        3. Move the character with the arrow keys so that it is touching a fish tank.
+        4. Repeat step 4 for all fish tanks.
+    Expected Outcome: A Pop up Window should open and give information about the exhibit. The player colliding with the top left tank should not display the same information as when the player collides with the bottom right tank. Each tank corresponds to a different exhibit and there are 6 different exhibits.
 
 Test Case 4: 
     Description:
@@ -92,13 +90,15 @@ Test Case 4:
     Expected Outcome: 
 
 Test Case 5: Game Over Condition
-
-    Test Description: Confirm that the game ends when the player loses all lives.
+    Test Description: Confirm that the game ends when the player has viewed all fish tanks.
     Test Steps:
-    Start the game.
-    Play until the player loses all lives.
-    Verify that the game displays a "Game Over" message.
-    Expected Outcome: The game should display a "Game Over" message when the player loses all lives.
+        1. Start the game.
+        2. Click on the Start Button.
+        3. Move the character with the arrow keys so that it is touching the fish tank.
+        4. Click on the exit button when the pop up window appears.
+        5. Repeat steps 3-4 for all fish tanks.
+        6. Verify that the game displays a "You Finished!" message.
+    Expected Outcome: The game should display a "You Finished!" message when the player has viewed all aquarium exhibits.
 
 
 

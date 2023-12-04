@@ -64,6 +64,3 @@ class Controller:
                             print("code for pop up window 6 goes here")
                             
         pygame.quit()    
-
-                        
-                
