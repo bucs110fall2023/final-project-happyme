@@ -1,12 +1,14 @@
 import pygame 
 from View import View
-from Model import Player, Timer
+from Model import Player, Timer, fishTank, button
 
 class Controller:        
     def __init__(self):
         self.view = View()
         self.player = Player(600,350, 30, 300)
         self.timer = Timer()
+        self.fishTank1 = fishTank("cadetblue1", 0, 0, 100)
+        self.startButton = button(400, 350, 150, 300, "START", "paleturquoise3") #create button
         
     def mainloop(self):
         running = True
@@ -14,34 +16,28 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT: 
                     running = False   
-                elif event.type == pygame.KEYDOWN:
-                    #self.timer.updateDT()
-                    dt = self.timer.get_dt()
-                    if event.key == pygame.K_LEFT:
-                        self.player.updatePos( 1, dt)  
-                        self.view.drawScreen(self.player) 
-                        print("Left key pressed")  
-                        print(self.player.x) 
-                        print(self.player.y)
-                    elif event.key == pygame.K_RIGHT:
-                        self.player.updatePos( 2, dt)  
-                        self.view.drawScreen(self.player) 
-                        print("Right key pressed")   
-                        print(self.player.x) 
-                        print(self.player.y)
-                    elif event.key == pygame.K_UP:
-                        self.player.updatePos( 3, dt)  
-                        self.view.drawScreen(self.player)
-                        print(self.player.x) 
-                        print(self.player.y)
-                        print("Up key pressed")  
-                    elif event.key == pygame.K_DOWN:
-                        self.player.updatePos( 4, dt)  
-                        self.view.drawScreen(self.player)  
-                        print("Down key pressed")
-                        print(self.player.x) 
-                        print(self.player.y)
-          
-                self.view.drawScreen(self.player)      
-            
-        pygame.quit()    
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    
+                    #if start button is clicked, start menu will open 
+                    if self.startButton.checkForInput(pygame.mouse.get_pos()):
+                        if event.type == pygame.KEYDOWN:
+                            dt = self.timer.get_dt()
+                            if event.key == pygame.K_LEFT:
+                                self.player.updatePos( 1, dt)    
+                            elif event.key == pygame.K_RIGHT:
+                                self.player.updatePos( 2, dt)     
+                            elif event.key == pygame.K_UP:
+                                self.player.updatePos( 3, dt)      
+                            elif event.key == pygame.K_DOWN:
+                                self.player.updatePos( 4, dt)   
+                        self.view.drawGameScreen(self.player)   
+                        #self.view.drawTank(self.fishTank1,self.fishTank1.getTankPoints)
+                
+                #start button was not clicked, main menu is displayed        
+                else:
+                    self.view.drawMenuScreen(self.startButton.color, self.startButton.getPoints, self.startButton.message)      
+                
+                pygame.quit()    
+
+                        
+                
