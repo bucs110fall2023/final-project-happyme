@@ -16,28 +16,22 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT: 
                     running = False   
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    
-                    #if start button is clicked, start menu will open 
-                    if self.startButton.checkForInput(pygame.mouse.get_pos()):
-                        if event.type == pygame.KEYDOWN:
-                            dt = self.timer.get_dt()
-                            if event.key == pygame.K_LEFT:
-                                self.player.updatePos( 1, dt)    
-                            elif event.key == pygame.K_RIGHT:
-                                self.player.updatePos( 2, dt)     
-                            elif event.key == pygame.K_UP:
-                                self.player.updatePos( 3, dt)      
-                            elif event.key == pygame.K_DOWN:
-                                self.player.updatePos( 4, dt)   
-                        self.view.drawGameScreen(self.player)   
-                        #self.view.drawTank(self.fishTank1,self.fishTank1.getTankPoints)
-                
-                #start button was not clicked, main menu is displayed        
-                else:
-                    self.view.drawMenuScreen(self.startButton.color, self.startButton.getPoints, self.startButton.message)      
-                
-                pygame.quit()    
+                elif event.type == pygame.KEYDOWN:
+                    dt = self.timer.get_dt()
+                    if event.key == pygame.K_LEFT:
+                        self.player.updatePos(1, dt)  
+                    elif event.key == pygame.K_RIGHT:
+                        self.player.updatePos(2, dt)
+                         
+                    elif event.key == pygame.K_UP:
+                        self.player.updatePos( 3, dt)  
+                        self.view.drawGameScreen(self.player) 
+                    elif event.key == pygame.K_DOWN:
+                        self.player.updatePos( 4, dt)    
+                        self.view.drawGameScreen(self.player) 
+                self.view.drawGameScreen(self.player)      
+
+        pygame.quit()    
 
                         
                 

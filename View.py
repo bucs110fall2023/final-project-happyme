@@ -14,10 +14,10 @@ class View:
         pygame.display.flip()
     
     def drawGameScreen(self, player):
-        self.screen.fill("cornsilk3") 
-        pygame.display.set_caption('aquarium game')
-        pygame.draw.circle(self.screen, player.color, (player.x, player.y) , player.radius)
-        pygame.display.flip()
+       self.screen.fill("cornsilk3") 
+       pygame.display.set_caption('aquarium game')
+       pygame.draw.circle(self.screen, player.color, (player.x, player.y) , player.radius)
+       pygame.display.flip()
     
     def drawTank(self, fishTankColor, points):
         self.screen.fill((255,255,255)) #White

@@ -10,7 +10,7 @@ class button:
         self.font = pygame.font.Font(None, 48)
         self.message = self.font.render(message, True, "WHITE")
         self.color = color
-        self.buttonMessage = self.font.render(self.message, True, self.color)
+        #self.buttonMessage = self.font.render(self.message, True, self.color)
     
     def checkForInput (self, position):
         buttonPress = False
