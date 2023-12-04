@@ -5,7 +5,7 @@ from Model import Player, Timer
 class Controller:        
     def __init__(self):
         self.view = View()
-        self.player = Player(600,350, 50, 5000)
+        self.player = Player(600,350, 30, 300)
         self.timer = Timer()
         
     def mainloop(self):
@@ -18,21 +18,30 @@ class Controller:
                     #self.timer.updateDT()
                     dt = self.timer.get_dt()
                     if event.key == pygame.K_LEFT:
-                        self.player.updatePos(1, dt)  
+                        self.player.updatePos( 1, dt)  
                         self.view.drawScreen(self.player) 
                         print("Left key pressed")  
-                        print (dt)
+                        print(self.player.x) 
+                        print(self.player.y)
                     elif event.key == pygame.K_RIGHT:
-                        self.player.updatePos( 2, dt)   
+                        self.player.updatePos( 2, dt)  
+                        self.view.drawScreen(self.player) 
                         print("Right key pressed")   
+                        print(self.player.x) 
+                        print(self.player.y)
                     elif event.key == pygame.K_UP:
                         self.player.updatePos( 3, dt)  
+                        self.view.drawScreen(self.player)
+                        print(self.player.x) 
+                        print(self.player.y)
                         print("Up key pressed")  
                     elif event.key == pygame.K_DOWN:
-                        self.player.updatePos( 4, dt)    
+                        self.player.updatePos( 4, dt)  
+                        self.view.drawScreen(self.player)  
                         print("Down key pressed")
+                        print(self.player.x) 
+                        print(self.player.y)
           
-                self.view.drawScreen(self.player)     
-                pygame.display.flip() 
+                self.view.drawScreen(self.player)      
             
         pygame.quit()    
