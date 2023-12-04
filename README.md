@@ -12,7 +12,7 @@ Megan Eng, Mingyang Liu
 
 ## Project Description
 
-Creating a visual tour for Acquarium which user can see pictures and introductions of each part. Then, the user can quit the screen as soon as they want.
+Creating a visual tour for Acquarium which user can interact with different exhibits to learn more about the animal.
 
 ***    
 
@@ -30,13 +30,11 @@ Creating a visual tour for Acquarium which user can see pictures and introductio
 
 1. Start menu 
 2. Moving character
-3. Interact with objects/exhibits
+3. Interact exhibits
 4. Pop up screens with information
-5. Ending menu
+5. End Screen
 
 ### Classes
-
-- << You should have a list of each of your classes with a description >>
 
 Player 
  A circle that the user can move by clicking on the up, down, left, and right keyboard keys

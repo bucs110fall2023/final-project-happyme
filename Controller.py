@@ -51,16 +51,16 @@ class Controller:
                         
                         #if player collides with a tank, display specific pop up window about fish
                         if self.fishTank1.checkForCollision(self.player.x, self.player.y):
-                            print("code for pop up window 1 goes here")
+                            self.view.drawPopUp()
                         if self.fishTank2.checkForCollision(self.player.x, self.player.y):
-                            print("code for pop up window 2 goes here")
+                            self.view.drawPopUp()
                         if self.fishTank3.checkForCollision(self.player.x, self.player.y):
-                            print("code for pop up window 3 goes here")
+                            self.view.drawPopUp()
                         if self.fishTank4.checkForCollision(self.player.x, self.player.y):
-                            print("code for pop up window 4 goes here")
+                            self.view.drawPopUp()
                         if self.fishTank5.checkForCollision(self.player.x, self.player.y):
-                            print("code for pop up window 5 goes here")
+                            self.view.drawPopUp()
                         if self.fishTank6.checkForCollision(self.player.x, self.player.y):
-                            print("code for pop up window 6 goes here")
+                            self.view.drawPopUp()
                             
         pygame.quit()    
