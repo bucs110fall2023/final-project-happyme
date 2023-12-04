@@ -21,7 +21,7 @@ class Button:
             buttonClicked = True
         return buttonClicked
 
-class FishTank: 
+class FishTank(pygame.sprite.Sprite): 
     def __init__(self, x, y, length, width):
         self.x1 = x
         self.y1 = y
@@ -30,6 +30,9 @@ class FishTank:
         xcoords = [self.x1, self.x1 + length, self.x1 + length, self.x1]
         ycoords = [self.y1, self.y1, self.y1 + width, self.y1 + width]
         self.points = list(zip(xcoords, ycoords))
+        self.image = pygame.image.load("assets/guppy.jpg")
+        self.rect = self.image.get_rect()
+    
         
     def getPoints(self):
         return self.points

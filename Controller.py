@@ -47,20 +47,24 @@ class Controller:
                             elif event.key == pygame.K_DOWN:
                                 self.player.updatePos( 4, dt)     
                         #display game screen 
-                        self.view.drawGameScreen(self.player, "dodgerblue3", self.fishTank1.getPoints(), self.fishTank2.getPoints(), self.fishTank3.getPoints(), self.fishTank4.getPoints(), self.fishTank5.getPoints(), self.fishTank6.getPoints())    
+                        self.view.drawGameScreen(self.player, self.fishTank1)
                         
+                        # col =  self.sprite.collide_rect(self.player, self.fishTank1)
+                        # if col:
+                        #     self.view.drawPopUp(col)
+                        #     print("do something when they collide")
                         #if player collides with a tank, display specific pop up window about fish
-                        if self.fishTank1.checkForCollision(self.player.x, self.player.y):
-                            self.view.drawPopUp()
-                        if self.fishTank2.checkForCollision(self.player.x, self.player.y):
-                            self.view.drawPopUp()
-                        if self.fishTank3.checkForCollision(self.player.x, self.player.y):
-                            self.view.drawPopUp()
-                        if self.fishTank4.checkForCollision(self.player.x, self.player.y):
-                            self.view.drawPopUp()
-                        if self.fishTank5.checkForCollision(self.player.x, self.player.y):
-                            self.view.drawPopUp()
-                        if self.fishTank6.checkForCollision(self.player.x, self.player.y):
-                            self.view.drawPopUp()
+                        #if self.fishTank1.checkForCollision(self.player.x, self.player.y):
+                        #    self.view.drawPopUp()
+                        #if self.fishTank2.checkForCollision(self.player.x, self.player.y):
+                         #   self.view.drawPopUp()
+                        #if self.fishTank3.checkForCollision(self.player.x, self.player.y):
+                        #    self.view.drawPopUp()
+                        #if self.fishTank4.checkForCollision(self.player.x, self.player.y):
+                        #    self.view.drawPopUp()
+                        #if self.fishTank5.checkForCollision(self.player.x, self.player.y):
+                        #    self.view.drawPopUp()
+                        #if self.fishTank6.checkForCollision(self.player.x, self.player.y):
+                         #   self.view.drawPopUp()
                             
         pygame.quit()    
