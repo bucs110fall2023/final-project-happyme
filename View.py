@@ -28,10 +28,3 @@ class View:
        #pygame.draw.polygon(self.screen, fishtankColor, tank6P)
        pygame.draw.circle(self.screen, player.color, (player.x, player.y) , player.radius)
        pygame.display.flip()
-    
-
-        
-        
-    
-        
-        

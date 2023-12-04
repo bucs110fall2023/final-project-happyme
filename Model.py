@@ -63,13 +63,9 @@ class Player:
                 self.x += adjust
         #UP
         if type == 3:
-            if (self.y - adjust) > 50:
-                self.y -= adjust
-        #DOWN
+            self.y += self.speed * dt
         if type == 4:
-            if (self.y + adjust) < 650:
-                self.y += adjust
-            
+            self.y -= self.speed * dt
             
 class Timer:
     def __init__(self):
