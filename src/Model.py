@@ -32,12 +32,6 @@ class FishTank(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.topleft = [self.x , self.y]
         self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2 *self.scale), int(self.rect.height * self.scale)))
-        
-    # def checkForCollision(self, playerx, playery):
-    #     tankCollide = False
-    #     if self.x1 <= playerx <= self.x1 + self.length and self.y1 <= playery <= self.y1 + self.width:
-    #         tankCollide = True
-    #     return tankCollide
     
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, speed, scale):
