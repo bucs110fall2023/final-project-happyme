@@ -22,26 +22,36 @@ class Button:
         return buttonClicked
 
 class FishTank(pygame.sprite.Sprite): 
-    def __init__(self, x, y, length, width):
-        self.x1 = x
-        self.y1 = y
-        self.length = length
-        self.width = width
-        xcoords = [self.x1, self.x1 + length, self.x1 + length, self.x1]
-        ycoords = [self.y1, self.y1, self.y1 + width, self.y1 + width]
-        self.points = list(zip(xcoords, ycoords))
-        self.image = pygame.image.load("assets/guppy.jpg")
+    def __init__(self, x, y, scale):
+        super().__init__()
+        
+        self.scale = scale
+        self.image = pygame.image.load("assets/fishtank.jpg")
         self.rect = self.image.get_rect()
+        self.rect.x = x 
+        self.rect.y = y
+        self.rect.topleft = [self.rect.x , self.rect.y]
+        self.image = pygame.transform.scale(self.image, (int(self.rect.x * self.scale), int(self.rect.y * self.scale)))
+        
+        
+        # self.x1 = x
+        # self.y1 = y
+        # self.length = length
+        # self.width = width
+        # xcoords = [self.x1, self.x1 + length, self.x1 + length, self.x1]
+        # ycoords = [self.y1, self.y1, self.y1 + width, self.y1 + width]
+        # self.points = list(zip(xcoords, ycoords))
+        
     
         
-    def getPoints(self):
-        return self.points
+    def getRect(self):
+        return self.rect.topleft
     
-    def checkForCollision(self, playerx, playery):
-        tankCollide = False
-        if self.x1 <= playerx <= self.x1 + self.length and self.y1 <= playery <= self.y1 + self.width:
-            tankCollide = True
-        return tankCollide
+    # def checkForCollision(self, playerx, playery):
+    #     tankCollide = False
+    #     if self.x1 <= playerx <= self.x1 + self.length and self.y1 <= playery <= self.y1 + self.width:
+    #         tankCollide = True
+    #     return tankCollide
     
 class Player:
     def __init__(self, x, y, speed, scale):
@@ -70,11 +80,11 @@ class Player:
                 self.x -= adjust
         #RIGHT
         if type == 2:
-            if (self.x + adjust) < 1100:
+            if (self.x + adjust) < 1050:
                 self.x += adjust
         #UP
         if type == 3:
-            if (self.y - adjust) > 50:
+            if (self.y - adjust) > 0:
                 self.y -= self.speed * dt
         
         #DOWN  

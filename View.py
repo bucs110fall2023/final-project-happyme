@@ -14,17 +14,16 @@ class View:
     
     def drawMenuScreen (self, startButtonColor, startBpoints, startBmessage):    
         self.screen.fill("cadetblue3") 
-        pygame.display.set_caption('acquarium start menu') 
+        pygame.display.set_caption('aquarium start menu') 
         pygame.draw.polygon(self.screen, startButtonColor, startBpoints) #draw start button
         self.screen.blit(startBmessage, (self.width / 3, self.height/2)) #display name of start button
         self.screen.blit(self.gameTitle, (self.width / 90, self.height/10)) #draw title
         pygame.display.flip()
     
-    def drawGameScreen(self, playerImage, playerPos, fishtankColor, tank6P):
+    def drawGameScreen(self, playerImage, playerPos, spriteGroup ):
        self.screen.fill("seashell1") 
        pygame.display.set_caption('aquarium game')
        #self.screen.blit(fishtTank1, (self.width / 3, self.height/2)) 
-       pygame.draw.polygon(self.screen, fishtankColor, tank6P)
-       self.screen.blit(playerImage , playerPos)
-       #pygame.draw.circle(self.screen, player.color, (player.x, player.y) , player.radius)
+       spriteGroup.draw(self.screen)
+       self.screen.blit(playerImage , playerPos) #draw player
        pygame.display.flip()

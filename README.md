@@ -62,18 +62,18 @@ Test Case 2: Player Movement
     Test Steps:
         1. Start the game.
         2. Click on the Start Button.
-        3. Press the left arrow key 3-4 times.
+        3. Press the left arrow key 1-2 times.
         4. Verify that the player moves left.
-        5.Press the right arrow key 3-4 times.
+        5.Press the right arrow key 1-2 times.
         6.Verify that the player moves right.
-        7.Press the up arrow key 3-4 times.
+        7.Press the up arrow key 1-2times.
         8.Verify that the player moves up.
-        9.Press the down arrow key 3-4 times.
+        9.Press the down arrow key 1-2 times.
         10.Verify that the player moves down.
     Expected Outcome: The player should move left, right, up, and down in response to the arrow key inputs.
 
 Test Case 3: Collision Detection
-    Test Description: Ensure that collisions between the player and fishtanks are detected correctly without going off the screen.
+    Test Description: Ensure that the player can collide with fishtanks without going off the screen.
     Test Steps:
         1. Start the game.
         2. Click on the Start Button.
@@ -85,8 +85,8 @@ Test Case 4: Pop Up Window
     Test Steps:
         1. 1. Start the game.
         2. Click on the Start Button.
-        3. Move the character with the arrow keys so that it is touching the fish tank.
-        4. Click on the exit button when the pop up window appears.
+        3. Move the character with the arrow keys so that it is touching the fish tank and a pop up window will appear.
+        4. Press on any arrow key to have the pop up window dissapear.
         5. Repeat steps 3-4 for all fish tanks.
     Expected Outcome: A Pop up Window should open and give information about the exhibit. The player colliding with the top left tank should not display the same information as when the player collides with the bottom right tank. Each tank corresponds to a different exhibit and there are 6 different exhibits.
 
@@ -96,7 +96,7 @@ Test Case 5: Game Over Condition
         1. Start the game.
         2. Click on the Start Button.
         3. Move the character with the arrow keys so that it is touching the fish tank.
-        4. Click on the exit button when the pop up window appears.
+        4. Press on any arrow key to have the pop up window disappear.
         5. Repeat steps 3-4 for all fish tanks.
         6. Verify that the game displays a "You Finished!" message.
     Expected Outcome: The game should display a "You Finished!" message when the player has viewed all aquarium exhibits.

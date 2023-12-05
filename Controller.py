@@ -5,15 +5,32 @@ from Model import Player, Timer, FishTank, Button
 class Controller:        
     def __init__(self):
         self.view = View()
-        self.player = Player(600,350, 300, .25)
+        self.player = Player(600,350, 300, .25) #movable character
         self.timer = Timer()
+        self.gameStarted = False
+        self.gameComplete = False
         
-        self.fishTank1 = FishTank( 50, 0, 300, 100)
-        self.fishTank2 = FishTank( 450, 0, 300, 100)
-        self.fishTank3 = FishTank( 850, 0, 300, 100)
-        self.fishTank4 = FishTank( 50, 600, 300, 100)
-        self.fishTank5 = FishTank( 450, 600, 300, 100)
-        self.fishTank6 = FishTank( 850, 600, 300, 100)
+        #sprite group of fishtanks
+        self.fishTanks = pygame.sprite.Group()
+        number_of_fishTanks = 6
+        interval = 400
+        xpos = 50
+        for i in range(number_of_fishTanks):
+            while xpos <= 850:
+                new_fishTank = FishTank(xpos, 0, (.25))
+                self.fishTanks.add(new_fishTank)
+                xpos += interval
+            else: 
+                xpos = 50
+                new_fishTank = FishTank(xpos, 600, (.25))
+                self.fishTanks.add(new_fishTank)
+                
+        # self.fishTank1 = FishTank( 50, 0, 300, 100)
+        # self.fishTank2 = FishTank( 450, 0, 300, 100)
+        # self.fishTank3 = FishTank( 850, 0, 300, 100)
+        # self.fishTank4 = FishTank( 50, 600, 300, 100)
+        # self.fishTank5 = FishTank( 450, 600, 300, 100)
+        # self.fishTank6 = FishTank( 850, 600, 300, 100)
         
         self.startButton = Button(400, 350, 100, 300, "START", "cornflowerblue", 100) 
     
@@ -48,7 +65,7 @@ class Controller:
                             elif event.key == pygame.K_DOWN:
                                 self.player.updatePos( 4, dt)     
                         #display game screen 
-                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(),  "slateblue4", self.fishTank6.getPoints())
+                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(),self.fishTanks  )
                         
                         # col =  self.sprite.collide_rect(self.player, self.fishTank1)
                         # if col:
@@ -70,6 +87,6 @@ class Controller:
                             
         pygame.quit()    
         
-        ### below are some sample loop states ###
+        
 
     
