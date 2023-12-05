@@ -5,22 +5,32 @@ from src.Model import Player, Timer, FishTank, Button
 class Controller:        
     def __init__(self):
         self.view = View()
-        self.player = Player(600,350, 300, .25) #movable character
+        self.player = Player(600,350, 300, .5) #movable character
         self.timer = Timer()
         self.gameStarted = False
         self.gameComplete = False
         
         #sprite group of fishtanks
-        #self.fishTanks = pygame.sprite.Group()
-        #number_of_fishTanks = 6
-        #interval = 400
-        #xpos = 50
-        #for i in range(0, number_of_fishTanks):
-        #    new_fishTank = FishTank(xpos, 0, (0.3))
-        #    self.fishTanks.add(new_fishTank)
-        #    xpos += interval
+        self.fishTanks = pygame.sprite.Group()
+        number_of_fishTanks = 3
+        interval = 400
+        topRowNotFill = True
+        xpos = 0
+        #top row of fishtanks
+        for i in range(0, number_of_fishTanks):
+            new_fishTank = FishTank(xpos, 0, 1.5)
+            xpos += interval    
+            self.fishTanks.add(new_fishTank)
         
-        self.fishTank1 = FishTank( 50, 0, 10)
+        x2pos = 0
+        #bottom row of fishtanks
+        for i in range(0, number_of_fishTanks):
+            new_fishTank = FishTank(x2pos, 500, 1.5)
+            x2pos += interval    
+            self.fishTanks.add(new_fishTank)
+            
+        
+        #self.fishTank1 = FishTank( 0, 0, 1.5)
         # self.fishTank2 = FishTank( 450, 0, 300, 100)
         # self.fishTank3 = FishTank( 850, 0, 300, 100)
         # self.fishTank4 = FishTank( 50, 600, 300, 100)
@@ -60,8 +70,7 @@ class Controller:
                             elif event.key == pygame.K_DOWN:
                                 self.player.updatePos( 4, dt)     
                         #display game screen 
-                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(), self.fishTank1.image,  self.fishTank1.getRect() )
-                        
+                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(), self.fishTanks )
                         # col =  self.sprite.collide_rect(self.player, self.fishTank1)
                         # if col:
                         #     self.view.drawPopUp(col)
