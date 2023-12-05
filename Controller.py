@@ -15,16 +15,12 @@ class Controller:
         number_of_fishTanks = 6
         interval = 400
         xpos = 50
-        for i in range(number_of_fishTanks):
-            while xpos <= 850:
-                new_fishTank = FishTank(xpos, 0, (.25))
-                self.fishTanks.add(new_fishTank)
-                xpos += interval
-            else: 
-                xpos = 50
-                new_fishTank = FishTank(xpos, 600, (.25))
-                self.fishTanks.add(new_fishTank)
-                
+        for i in range(0, number_of_fishTanks):
+            new_fishTank = FishTank(xpos, 0, (0.3))
+            self.fishTanks.add(new_fishTank)
+            xpos += interval
+        
+        
         # self.fishTank1 = FishTank( 50, 0, 300, 100)
         # self.fishTank2 = FishTank( 450, 0, 300, 100)
         # self.fishTank3 = FishTank( 850, 0, 300, 100)
@@ -65,7 +61,8 @@ class Controller:
                             elif event.key == pygame.K_DOWN:
                                 self.player.updatePos( 4, dt)     
                         #display game screen 
-                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(),self.fishTanks  )
+                        self.fishTanks.update()
+                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(), self.fishTanks  )
                         
                         # col =  self.sprite.collide_rect(self.player, self.fishTank1)
                         # if col:

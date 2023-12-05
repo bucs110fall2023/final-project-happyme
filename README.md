@@ -85,8 +85,8 @@ Test Case 4: Pop Up Window
     Test Steps:
         1. 1. Start the game.
         2. Click on the Start Button.
-        3. Move the character with the arrow keys so that it is touching the fish tank and a pop up window will appear.
-        4. Press on any arrow key to have the pop up window dissapear.
+        3. Move the character with the arrow keys so that it is touching the fish tank and a "pop up window" will appear.
+        4. Press on any arrow key to have the "pop up window" dissapear.
         5. Repeat steps 3-4 for all fish tanks.
     Expected Outcome: A Pop up Window should open and give information about the exhibit. The player colliding with the top left tank should not display the same information as when the player collides with the bottom right tank. Each tank corresponds to a different exhibit and there are 6 different exhibits.
 
