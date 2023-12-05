@@ -20,10 +20,10 @@ class View:
         self.screen.blit(self.gameTitle, (self.width / 90, self.height/10)) #draw title
         pygame.display.flip()
     
-    def drawGameScreen(self, playerImage, playerPos, spriteGroup ):
+    def drawGameScreen(self, playerImage, playerPos, fishImage, fishPos):
        self.screen.fill("seashell1") 
        pygame.display.set_caption('aquarium game')
-       #self.screen.blit(fishtTank1, (self.width / 3, self.height/2))
+       self.screen.blit(fishImage, fishPos) #draw fish tank
        self.screen.blit(playerImage , playerPos) #draw player
-       spriteGroup.draw(self.screen)
+       
        pygame.display.flip()
