@@ -55,7 +55,7 @@ Test Case 1: Menu Navigation
     Test Steps:
         1. Start the game.
         2. Click on the Start Button.
-    Expected Outcome: The main menu should allow the player to navigate to the Game Screen.
+    Expected Outcome: The screen should display the game screen.
 
 Test Case 2: Player Movement
     Description: Verify that the player can move up, down, left, and right.
