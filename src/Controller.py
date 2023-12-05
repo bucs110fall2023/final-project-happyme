@@ -1,6 +1,6 @@
 import pygame 
-from View import View
-from Model import Player, Timer, FishTank, Button
+from src.View import View
+from src.Model import Player, Timer, FishTank, Button
 
 class Controller:        
     def __init__(self):
