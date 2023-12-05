@@ -20,11 +20,11 @@ class View:
         self.screen.blit(self.gameTitle, (self.width / 90, self.height/10)) #draw title
         pygame.display.flip()
     
-    def drawGameScreen(self, player, fishtTank1):
+    def drawGameScreen(self, playerImage, playerPos, fishtankColor, tank6P):
        self.screen.fill("seashell1") 
        pygame.display.set_caption('aquarium game')
-       self.screen.blit(fishtTank1, (self.width / 3, self.height/2)) #display name of start butt
-    
-       #pygame.draw.polygon(self.screen, fishtankColor, tank6P)
-       pygame.draw.circle(self.screen, player.color, (player.x, player.y) , player.radius)
+       #self.screen.blit(fishtTank1, (self.width / 3, self.height/2)) 
+       pygame.draw.polygon(self.screen, fishtankColor, tank6P)
+       self.screen.blit(playerImage , playerPos)
+       #pygame.draw.circle(self.screen, player.color, (player.x, player.y) , player.radius)
        pygame.display.flip()

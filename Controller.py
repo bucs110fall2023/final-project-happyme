@@ -5,7 +5,7 @@ from Model import Player, Timer, FishTank, Button
 class Controller:        
     def __init__(self):
         self.view = View()
-        self.player = Player(600,350, 30, 300)
+        self.player = Player(600,350, 300, .25)
         self.timer = Timer()
         
         self.fishTank1 = FishTank( 50, 0, 300, 100)
@@ -25,27 +25,6 @@ class Controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT: 
                     running = False   
-                elif event.type == pygame.KEYDOWN:
-                    #self.timer.updateDT()
-                    dt = self.timer.get_dt()
-                    if event.key == pygame.K_LEFT:
-                        self.player.updatePos(1, dt)  
-                        self.view.drawScreen(self.player) 
-                        print("Left key pressed")  
-                        print (dt)
-                    elif event.key == pygame.K_RIGHT:
-                        self.player.updatePos( 2, dt)   
-                        print("Right key pressed")   
-                    elif event.key == pygame.K_UP:
-                        self.player.updatePos( 3, dt)  
-                        print("Up key pressed")  
-                    elif event.key == pygame.K_DOWN:
-                        self.player.updatePos( 4, dt)    
-                        print("Down key pressed")
-          
-                self.view.drawScreen(self.player)     
-                pygame.display.flip() 
-            
                 #default display start menu 
                 if gameStart != True:
                     self.view.drawMenuScreen (self.startButton.color, self.startButton.getPoints(), self.startButton.message)
@@ -65,10 +44,11 @@ class Controller:
                                 self.player.updatePos(2, dt)
                             elif event.key == pygame.K_UP:
                                 self.player.updatePos( 3, dt)  
+                                
                             elif event.key == pygame.K_DOWN:
                                 self.player.updatePos( 4, dt)     
                         #display game screen 
-                        self.view.drawGameScreen(self.player, self.fishTank1)
+                        self.view.drawGameScreen(self.player.getImg(), self.player.getRect(),  "slateblue4", self.fishTank6.getPoints())
                         
                         # col =  self.sprite.collide_rect(self.player, self.fishTank1)
                         # if col:
@@ -89,3 +69,7 @@ class Controller:
                          #   self.view.drawPopUp()
                             
         pygame.quit()    
+        
+        ### below are some sample loop states ###
+
+    

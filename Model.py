@@ -44,18 +44,29 @@ class FishTank(pygame.sprite.Sprite):
         return tankCollide
     
 class Player:
-    def __init__(self, x, y, radius, speed):
+    def __init__(self, x, y, speed, scale):
         self.color = "slateblue4" #Purple 
         self.x = x
         self.y = y
-        self.radius = radius
         self.speed = speed
+        self.scale = scale
+        self.image = pygame.image.load("assets/character.jpg")
+        self.rect = self.image.get_rect()
+        self.rect.topleft = [self.x , self.y]
+        self.image = pygame.transform.scale(self.image, (int(self.rect.width * self.scale), int(self.rect.height * self.scale)))
+        
+        
+    def getImg(self):
+        return self.image
+    
+    def getRect(self):
+        return self.rect.topleft
     
     def updatePos(self, type, dt):
         adjust = self.speed * dt
         #LEFT
         if type == 1:
-            if (self.x - adjust) > 100:
+            if (self.x - adjust) > 50:
                 self.x -= adjust
         #RIGHT
         if type == 2:
@@ -63,9 +74,15 @@ class Player:
                 self.x += adjust
         #UP
         if type == 3:
-            self.y += self.speed * dt
+            if (self.y - adjust) > 50:
+                self.y -= self.speed * dt
+        
+        #DOWN  
         if type == 4:
-            self.y -= self.speed * dt
+            if (self.y + adjust) < 550:
+                self.y += self.speed * dt
+        
+        self.rect.topleft = [self.x , self.y]
             
 class Timer:
     def __init__(self):
