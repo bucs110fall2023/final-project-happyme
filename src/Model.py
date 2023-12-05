@@ -33,6 +33,9 @@ class FishTank(pygame.sprite.Sprite):
         self.rect.topleft = [self.x , self.y]
         self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2 *self.scale), int(self.rect.height * self.scale)))
     
+    def getRect(self):
+        return pygame.Rect(self.x / 5, self.y / 5)
+    
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, speed, scale):
         super().__init__()
@@ -44,13 +47,15 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.topleft = [self.x , self.y]
         self.image = pygame.transform.scale(self.image, (int(self.rect.width * self.scale), int(self.rect.height * self.scale)))
-        
-        
+         
     def getImg(self):
         return self.image
     
     def getRect(self):
-        return self.rect.topleft
+        rect_width = int(self.rect.width / 1000) 
+        rect_height = int(self.rect.height / 1000)
+        return pygame.Rect(self.x , self.y , rect_width, rect_height)
+
     
     def updatePos(self, type, dt):
         adjust = self.speed * dt
@@ -81,3 +86,19 @@ class Timer:
     def get_dt(self):
         self.dt = (self.clock.tick(60) / 1000)
         return self.dt
+
+class InfoBox:
+    def __init__(self, name, fact1, fact2, fact3, img):
+        self.width = 300
+        self.length = 300
+        self.increment = 300
+        self.name = name
+        self.image = pygame.image.load(img)
+        self.font = pygame.font.SysFont("cambria", 12)
+        xcoords = [self.length, self.length + self.increment, self.length + self.increment, self.length]
+        ycoords = [self.width, self.width, self.width + self.increment, self.width + self.increment]
+        self.points = list(zip(xcoords, ycoords))
+        self.fact1 = self.font.render(fact1, True, "WHITE")
+        self.fact2 = self.font.render(fact2, True, "WHITE")
+        self.fact3 = self.font.render(fact3, True, "WHITE")
+        

@@ -7,10 +7,6 @@ class View:
         self.height = self.screen.get_height()
         self.font = pygame.font.SysFont("cambria", 200)
         self.gameTitle = self.font.render("AQUARIUM", True, "WHITE")
-        
-    def drawPopUp(self):
-        self.screen.fill("cornsilk1") 
-        pygame.display.flip()
     
     def drawMenuScreen (self, startButtonColor, startBpoints, startBmessage):    
         self.screen.fill("cadetblue3") 
@@ -21,8 +17,18 @@ class View:
         pygame.display.flip()
     
     def drawGameScreen(self, playerImage, playerPos, spriteGroup ):
+       
        self.screen.fill("seashell1") 
        pygame.display.set_caption('aquarium game')
        spriteGroup.draw(self.screen) #draw fish tanks
        self.screen.blit(playerImage , playerPos) #draw player
        pygame.display.flip()
+       
+    def drawPopupScreen(self,startBpoints, image, name, fact1, fact2, fact3 ):
+        pygame.draw.polygon(self.screen, "BLUE", startBpoints) #draw rectangle
+        self.screen.blit(image , (300, 300)) #draw image
+        self.screen.blit(name, (300, 300))#draw name of exhibit
+        self.screen.blit(fact1, (400, 300))#draw fact1
+        self.screen.blit(fact2, (400, 400))#draw fact2
+        self.screen.blit(fact3, (400, 500))#draw fact3
+        
