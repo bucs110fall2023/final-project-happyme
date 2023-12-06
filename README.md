@@ -40,16 +40,19 @@ Player
  A character that the user can move by clicking on the up, down, left, and right keyboard keys
 
 Timer 
- A timer used in the backend to determine how far the player moves
+ A timer used in the backend to determine how much the player moves everytime an arrow key is pressed
 
 FishTank 
  A rectangle that the user can collide with to recieve a pop-up window with more information about the exhibit
 
 Button 
- A rectangle that prompts a new event to occur when 
+ A rectangle that was used to switch between the start menu and game screen
 
 InfoBox 
  A popup window that displays the exhibit information and image
+
+Text 
+ Any titles or messages that needed to be displayed on the pygame screen
 
 
 
