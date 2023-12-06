@@ -22,16 +22,16 @@ class Button:
         return buttonClicked
 
 class FishTank(pygame.sprite.Sprite): 
-    def __init__(self, x, y, scale):
+    def __init__(self, x, y):
         super().__init__()
         self.x = x
         self.y = y
 
-        self.scale = scale
+        self.scale = 1
         self.image = pygame.image.load("assets/fishtank.jpg")
-        self.rect = self.image.get_rect()
-        self.rect.topleft = [self.x , self.y]
-        self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2), int(self.rect.height * 0.5)))
+        self.rect= self.image.get_rect()
+        self.rect.topleft = [self.x  , self.y ]
+        self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2), int(self.rect.height * 1.5)))
         
          
     def getRect(self):
