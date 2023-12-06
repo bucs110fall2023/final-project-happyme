@@ -31,8 +31,9 @@ class FishTank(pygame.sprite.Sprite):
         self.image = pygame.image.load("assets/fishtank.jpg")
         self.rect = self.image.get_rect()
         self.rect.topleft = [self.x , self.y]
-        self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2 *self.scale), int(self.rect.height * self.scale)))
-    
+        self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2), int(self.rect.height * 0.5)))
+        
+         
     def getRect(self):
         return pygame.Rect(self.x / 5, self.y / 5)
     
