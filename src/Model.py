@@ -1,4 +1,4 @@
-import pygame 
+import pygame         
 class Button: 
     def __init__(self, x, y, width, length, message, color, messageSize):
         self.x1 = x
@@ -25,17 +25,28 @@ class FishTank(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         self.x = x
+        self.width = 50
+        self.height = 25
         self.y = y
-
-        self.scale = 1
+        self.view = False 
         self.image = pygame.image.load("assets/fishtank.jpg")
         self.rect= self.image.get_rect()
-        self.rect.topleft = [self.x  , self.y ]
-        self.image = pygame.transform.scale(self.image, (int(self.rect.width * 2), int(self.rect.height * 1.5)))
+        self.image = pygame.transform.scale(self.image, (int(self.rect.width * 1.5 ), int(self.rect.height  * 1.5)))
+        self.rect= self.image.get_rect()
+        self.rect.height /= 2
+        self.rect.width -= 30
+        self.rect.topleft = [self.x  , self.y ] 
+       
         
-         
+    def updateView(self):
+        self.view = True
+        
+    def getViewStatus(self):
+        return self.view 
+    
     def getRect(self):
-        return pygame.Rect(self.x / 5, self.y / 5)
+        return self.rect
+    
     
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y, speed, scale):
@@ -43,26 +54,32 @@ class Player(pygame.sprite.Sprite):
         self.x = x
         self.y = y
         self.speed = speed
+        self.width = 100
+        self.height = 100
         self.scale = scale
         self.image = pygame.image.load("assets/character.jpg")
+       
+        
         self.rect = self.image.get_rect()
-        self.rect.topleft = [self.x , self.y]
         self.image = pygame.transform.scale(self.image, (int(self.rect.width * self.scale), int(self.rect.height * self.scale)))
-         
+        self.rect = self.image.get_rect()
+        self.rect.height -= self.height
+        self.rect.width -= self.width
+        
+    
+        
     def getImg(self):
         return self.image
     
     def getRect(self):
-        rect_width = int(self.rect.width / 1000) 
-        rect_height = int(self.rect.height / 1000)
-        return pygame.Rect(self.x , self.y , rect_width, rect_height)
+        return pygame.Rect(self.x , self.y , self.width, self.height)
 
     
     def updatePos(self, type, dt):
         adjust = self.speed * dt
         #LEFT
         if type == 1:
-            if (self.x - adjust) > 50:
+            if (self.x - adjust) > 0:
                 self.x -= adjust
         #RIGHT
         if type == 2:
@@ -75,7 +92,7 @@ class Player(pygame.sprite.Sprite):
         
         #DOWN  
         if type == 4:
-            if (self.y + adjust) < 500:
+            if (self.y + adjust) < 600:
                 self.y += self.speed * dt
         
         self.rect.topleft = [self.x , self.y]
@@ -106,3 +123,7 @@ class InfoBox:
         self.fact2 = self.font.render(fact2, True, "WHITE")
         self.fact3 = self.font.render(fact3, True, "WHITE")
         
+class Text:
+    def __init__(self, size, message, textColor):
+        self.font = pygame.font.SysFont("cambria", size)
+        self.message = self.font.render(message, True, textColor)
