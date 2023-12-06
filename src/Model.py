@@ -89,15 +89,18 @@ class Timer:
 
 class InfoBox:
     def __init__(self, name, fact1, fact2, fact3, img):
-        self.width = 300
-        self.length = 300
-        self.increment = 300
-        self.name = name
+        self.width = 200
+        self.length = 250
+        self.lincrement = 700
+        self.wincrement = 400
+        self.scale = .5
         self.image = pygame.image.load(img)
-        self.font = pygame.font.SysFont("cambria", 12)
-        xcoords = [self.length, self.length + self.increment, self.length + self.increment, self.length]
-        ycoords = [self.width, self.width, self.width + self.increment, self.width + self.increment]
+        self.image = pygame.transform.scale(self.image, (int(self.length * self.scale), int(self.width * self.scale)))
+        self.font = pygame.font.SysFont("cambria", 30)
+        xcoords = [self.length, self.length + self.lincrement, self.length + self.lincrement, self.length]
+        ycoords = [self.width, self.width, self.width + self.wincrement, self.width + self.wincrement]
         self.points = list(zip(xcoords, ycoords))
+        self.name = self.font.render(name, True, "WHITE")
         self.fact1 = self.font.render(fact1, True, "WHITE")
         self.fact2 = self.font.render(fact2, True, "WHITE")
         self.fact3 = self.font.render(fact3, True, "WHITE")

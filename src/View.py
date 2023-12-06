@@ -25,10 +25,11 @@ class View:
        pygame.display.flip()
        
     def drawPopupScreen(self,startBpoints, image, name, fact1, fact2, fact3 ):
-        pygame.draw.polygon(self.screen, "BLUE", startBpoints) #draw rectangle
-        self.screen.blit(image , (300, 300)) #draw image
-        self.screen.blit(name, (300, 300))#draw name of exhibit
+        pygame.draw.polygon(self.screen, "cornflowerblue", startBpoints) #draw rectangle
+        self.screen.blit(image, (250, 300))#draw image
+        self.screen.blit(name, (250, 220))#draw name of exhibit
         self.screen.blit(fact1, (400, 300))#draw fact1
         self.screen.blit(fact2, (400, 400))#draw fact2
         self.screen.blit(fact3, (400, 500))#draw fact3
+        pygame.display.flip()
         

@@ -9,7 +9,7 @@ class Controller:
         self.timer = Timer()
         self.gameStarted = False
         self.gameComplete = False
-        self.tanks_viewed= []
+        self.tanks_viewed = []
         self.tankCounter = 6
         
         #sprite group of fishtanks
@@ -25,8 +25,18 @@ class Controller:
         
         #startbutton for menu screen
         self.startButton = Button(400, 350, 100, 300, "START", "cornflowerblue", 100) 
-    
-        self.t1Info = InfoBox( "Guppy", "-tropical fish", "-popular freshwater species", "-name comes from Robert John Lechmere Guppy", "assets/guppy.jpg")
+
+        #popup box initialization
+        self.t1Info = InfoBox( "Guppy", "-A tropical fish native to South America", "-Omnivores", "-Named after Robert John Lechmere Guppy", "assets/guppy.jpg")
+        self.t2Info = InfoBox( "Red Snapper", "-May grow up to 40 inches long", "-Prey to large marine mammals" , "-Can be fished at the Gulf of Mexico", "assets/redsnaper.jpg")
+        self.t3Info = InfoBox( "Largemouth Bass", "-Top Predators in Aquatic Ecosystem", "-Native to the Mississippi River.", "-Can grow up to 16 inches in 3 years",  "assets/bass.jpg")
+        self.t4Info = InfoBox( "Tuna", "-Very fast swimmers", "Travel in groups called 'schools'", "-Prey on crustaceans and squid", "assets/tuna.jpg")
+        self.t5Info = InfoBox( "Blobfish", "-They have no bones or teeth", "-Native to New Zealand and Australia", "-Can grow up to 12 inches long"   "assets/blobfish.jpg")
+        self.t6Info = InfoBox( "Pufferfish", "One of the most poisonous fish species", "-Can make nest patterns in the sand", "-Dolphins often play catch with this species", "assets/pufferfish.jpg")
+        
+        
+        
+        
         
     def mainloop(self):
         running = True
@@ -59,15 +69,32 @@ class Controller:
                         #display game screen 
                         self.view.drawGameScreen(self.player.getImg(), self.player.getRect(), self.fishTanks )
                         
-                        #if player collides with any tank
-                        #for i in  pygame.sprite.spritecollide(self.player, self.fishTanks, True):
+                        #if player collides with tank
+                        #tank 1, top left
                         if pygame.sprite.collide_rect(self.player, self.fishTank1):
                             self.view.drawPopupScreen(self.t1Info.points, self.t1Info.image, self.t1Info.name, self.t1Info.fact1, self.t1Info.fact2, self.t1Info.fact3)
-                            
-                        #for tank in self.tanks_viewed:
-                            #self.tankCounter -= 1
-                            #if self.tankCounter == 0:
-                                #print ("You have completed the game!")
+                            self.tanks_viewed += 1
+                        #tank 2, top middle
+                        if pygame.sprite.collide_rect(self.player, self.fishTank2):
+                            self.view.drawPopupScreen(self.t2Info.points, self.t2Info.image, self.t2Info.name, self.t2Info.fact1, self.t2Info.fact2, self.t2Info.fact3)
+                            self.tanks_viewed += 2
+                        #tank 3, top right
+                        if pygame.sprite.collide_rect(self.player, self.fishTank3):
+                            self.view.drawPopupScreen(self.t3Info.points, self.t3Info.image, self.t3Info.name, self.t3Info.fact1, self.t3Info.fact2, self.t3Info.fact3)
+                            self.tanks_viewed += 3
+                        #tank 4, bottom left
+                        if pygame.sprite.collide_rect(self.player, self.fishTank4):
+                            self.view.drawPopupScreen(self.t4Info.points, self.t4Info.image, self.t4Info.name, self.t4Info.fact1, self.t4Info.fact2, self.t4Info.fact3)
+                            self.tanks_viewed += 4
+                        #tank 5, bottom middle
+                        if pygame.sprite.collide_rect(self.player, self.fishTank5):
+                            self.view.drawPopupScreen(self.t5Info.points, self.t5Info.image, self.t5Info.name, self.t5Info.fact1, self.t5Info.fact2, self.t5Info.fact3)
+                            self.tanks_viewed += 5
+                        #tank 6, bottom right
+                        if pygame.sprite.collide_rect(self.player, self.fishTank6):
+                            self.view.drawPopupScreen(self.t6Info.points, self.t6Info.image, self.t6Info.name, self.t6Info.fact1, self.t6Info.fact2, self.t6Info.fact3)
+                            self.tanks_viewed += 6                    
+        
                     
         pygame.quit()    
         
